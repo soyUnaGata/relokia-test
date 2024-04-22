@@ -7,6 +7,9 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 # Install xdebug extension
 RUN install-php-extensions xdebug
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Configure xdebug
 RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \

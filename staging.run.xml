@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="staging" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" filter_connections="FILTER" server_name="staging" session_id="stagingkey">
+  <configuration default="false" name="staging" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" activateToolWindowBeforeRun="false" filter_connections="FILTER" server_name="staging" session_id="stagingkey">
     <method v="2" />
   </configuration>
 </component>
