@@ -11,7 +11,6 @@ $password = 'uaiP26y5eAnU67j';
 $api = new ZendeskAPI($subdomain, $username, $password);
 $tickets_data = $api->getTickets();
 
-
 $tickets = [];
 foreach ($tickets_data as $ticket_data) {
     $ticket = new Ticket();
@@ -30,7 +29,7 @@ foreach ($tickets_data as $ticket_data) {
     $ticket->company_id = $ticket_data['company_id'];
     $ticket->company_name = $ticket_data['company_name'];
 
-    $comments_data = $ticket_data['comments'];
+    $comments_data = $api->getTicketComments($ticket->id);
 
     if(isset($comments_data)){
         foreach ($comments_data as $comment_data) {
@@ -39,10 +38,7 @@ foreach ($tickets_data as $ticket_data) {
     }
 
     array_push($tickets, $ticket);
-
 }
-
-var_dump($tickets);
 
 $csvFile = fopen('tickets.csv', 'w');
 fputcsv($csvFile, ['Ticket ID', 'Description', 'Status', 'Priority', 'Agent ID', 'Agent Name', 'Agent Email', 'Contact ID', 'Contact Name', 'Contact Email', 'Group ID', 'Group Name', 'Company ID', 'Company Name', 'Comments']);
@@ -59,4 +55,3 @@ foreach ($tickets as $ticket) {
 }
 
 fclose($csvFile);
-

@@ -1,7 +1,4 @@
 <?php
-
-echo "Hello, World!";
-
 class Ticket
 {
     public $id;

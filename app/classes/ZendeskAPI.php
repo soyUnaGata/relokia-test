@@ -2,7 +2,6 @@
 
 use GuzzleHttp\Client;
 
-echo "Hello, World!";
 
 class ZendeskAPI
 {
@@ -26,5 +25,11 @@ class ZendeskAPI
     {
         $response = $this->client->request('GET', 'tickets.json');
         return json_decode($response->getBody()->getContents(), true)['tickets'];
+    }
+
+    public function getTicketComments($ticket_id)
+    {
+        $response = $this->client->request('GET', "tickets/{$ticket_id}/comments.json");
+        return json_decode($response->getBody()->getContents(), true)['comments'];
     }
 }
