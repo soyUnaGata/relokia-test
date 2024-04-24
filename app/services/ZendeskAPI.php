@@ -1,7 +1,7 @@
 <?php
 
+namespace Services;
 use GuzzleHttp\Client;
-
 
 class ZendeskAPI
 {
