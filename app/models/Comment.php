@@ -4,14 +4,12 @@ namespace Models;
 
 class Comment
 {
-    public $id;
     public $body;
+    public $ticket_id;
 
-    public static function create($data) : Comment
+    public function __construct($body, $ticket_id)
     {
-        $comment = new Comment();
-        $comment->id = $data['id'];
-        $comment->body = $data['body'];
-        return $comment;
+        $this->body = $body;
+        $this->ticket_id = $ticket_id;
     }
 }
